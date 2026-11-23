@@ -23,7 +23,7 @@ Use the Maven Wrapper and JDK 17 or newer. On Windows PowerShell, replace `./mvn
 ./mvnw javafx:run -Dseed=42         # launch a reproducible dungeon
 ```
 
-CI runs `./mvnw -B clean test` on pushes and pull requests. Run focused tests while developing and the full suite before finishing code changes. The build also supports PIT mutation testing and SpotBugs; see `README.md` for those optional commands.
+CI runs `./mvnw -B clean test`, PIT mutation testing, and SpotBugs on pushes and pull requests, and uploads the PIT HTML and SpotBugs SARIF reports. Run focused tests while developing and the full suite before finishing code changes. See `README.md` for local PIT and SpotBugs commands.
 
 ## Change guidelines
 

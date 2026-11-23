@@ -93,6 +93,11 @@
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>4.10.4.1</version>
+                <configuration>
+                    <sarifOutput>true</sarifOutput>
+                    <!-- Existing medium findings remain in SARIF; fail CI for high severity findings. -->
+                    <failThreshold>High</failThreshold>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>

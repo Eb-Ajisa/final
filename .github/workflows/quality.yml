@@ -19,7 +19,27 @@ jobs:
           java-version: '17'
           cache: maven
 
-      - name: Build and run the tests
+      - name: Run JUnit regression tests
         run: ./mvnw -B clean test
 
-      # Additional steps can be added here.
+      - name: Run PIT mutation testing
+        run: ./mvnw -B org.pitest:pitest-maven:mutationCoverage
+
+      - name: Run SpotBugs analysis
+        run: ./mvnw -B spotbugs:check
+
+      - name: Upload PIT report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pit-report
+          path: target/pit-reports/
+          if-no-files-found: warn
+
+      - name: Upload SpotBugs SARIF results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spotbugs-sarif
+          path: target/spotbugsSarif.json
+          if-no-files-found: warn

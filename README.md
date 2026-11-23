@@ -40,8 +40,10 @@ The build also declares these plugins:
 ./mvnw compile spotbugs:spotbugs spotbugs:gui     # SpotBugs
 ```
 
-A GitHub Actions workflow in `.github/workflows/quality.yml` builds the project and runs the tests on
-every push and pull request.
+A GitHub Actions workflow in `.github/workflows/quality.yml` runs the JUnit regression tests, PIT
+mutation testing, and SpotBugs on every push and pull request. The workflow uploads the PIT HTML report
+and SpotBugs SARIF results as downloadable run artifacts. SpotBugs reports all findings and fails the
+build for high-severity findings; existing medium-severity findings remain visible in the SARIF report.
 
 The first run takes a minute or two while dependencies download.
 
