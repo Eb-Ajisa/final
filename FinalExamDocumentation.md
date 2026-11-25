@@ -42,15 +42,24 @@ PIT mutation testing of the combat package reported **20% mutation coverage** an
 
 | Risk | Supporting Evidence | Priority |
 |---|---|---|
-| Save/load and replay inconsistencies | Beta-user report; persistence instruction coverage of 23% | High |
-| Inventory and purchasing defects | Beta-user report; item instruction coverage of 38% | High |
-| Combat correctness | Beta-user report; combat mutation coverage of 20% | High |
-| Quest progression defects | Beta-user report; quest instruction coverage of 21% | High |
-| Dungeon progression bypass | Beta-user report involving a trapdoor bypassing a boss | High |
 | Potential code-quality problems | 47 SpotBugs warnings | Medium |
 | Untested UI and audio behavior | 0% automated instruction coverage in both packages | Medium |
 
 These are preliminary risk ratings. Reported defects have not all been independently reproduced, and priorities may change after investigation.
+
+### Beta-Reported Bugs
+
+The five risks above correspond to these player reports in [BUGS.md](https://github.com/Eb-Ajisa/final/blob/main/BUGS.md):
+
+| Reported bug | What the player reported |
+|---|---|
+| **Shield doesn't stop poison** | A poison bite applied poison even though shielding absorbed the entire hit. |
+| **Lost my gold buying from Conover** | Buying armor with a full pack deducted gold and removed the armor from the shop, but did not give the player the item. |
+| **Archivist only counts one requirements page** | Three torn requirements pages appeared as a stack, but the Archivist and quest log counted only one. |
+| **"Continue" puts me somewhere else** | After saving, the player resumed in a different position with different health and a previously killed monster alive. The player mentioned an earlier snare, but its connection to the problem is unknown. |
+| **Fell past a guardian** | A hidden trapdoor let the player descend from a guardian floor without defeating the guardian. |
+
+These reports have not yet been confirmed or investigated. Individual GitHub Issues will be created during **Task 3**.
 
 ### Planned Quality Improvements
 
